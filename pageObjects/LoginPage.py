@@ -1,3 +1,5 @@
+from selenium import webdriver
+
 class LoginPage:
     textbox_username_id = "Email"
     textbox_pasword_id = "Password"
@@ -6,6 +8,10 @@ class LoginPage:
 
     def __init__(self, driver):
         self.driver = driver
+
+    def setup(self):
+        self.driver = webdriver.Chrome()
+        self.driver.implicitly_wait(30)
 
     def setusername(self, username):
         self.driver.find_element_by_id(self.textbox_username_id).clear()
